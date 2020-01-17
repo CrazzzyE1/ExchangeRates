@@ -31,7 +31,7 @@ public class Controller {
     @FXML
     void initialize() {
         authSigInButton.setOnAction(event -> {
-            System.out.println("START to Login");
+            System.out.println("START to Login 1");
         });
     }
 }
