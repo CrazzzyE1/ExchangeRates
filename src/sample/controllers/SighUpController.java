@@ -16,32 +16,25 @@ public class SighUpController {
     private URL location;
 
     @FXML
-    private TextField login_field;
+    private TextField sighUp_login;
 
     @FXML
-    private Button authSigInButton;
+    private Button sighUpButton;
 
     @FXML
-    private PasswordField password_field;
+    private PasswordField sighUp_pass1;
 
     @FXML
-    private PasswordField password_field1;
+    private PasswordField sighUp_pass2;
 
     @FXML
-    private TextField login_field1;
+    private TextField sighUp_name;
 
     @FXML
-    private TextField login_field11;
+    private TextField sighUp_email;
 
     @FXML
     void initialize() {
-        assert login_field != null : "fx:id=\"login_field\" was not injected: check your FXML file 'sighUp.fxml'.";
-        assert authSigInButton != null : "fx:id=\"authSigInButton\" was not injected: check your FXML file 'sighUp.fxml'.";
-        assert password_field != null : "fx:id=\"password_field\" was not injected: check your FXML file 'sighUp.fxml'.";
-        assert password_field1 != null : "fx:id=\"password_field1\" was not injected: check your FXML file 'sighUp.fxml'.";
-        assert login_field1 != null : "fx:id=\"login_field1\" was not injected: check your FXML file 'sighUp.fxml'.";
-        assert login_field11 != null : "fx:id=\"login_field11\" was not injected: check your FXML file 'sighUp.fxml'.";
 
     }
 }
-

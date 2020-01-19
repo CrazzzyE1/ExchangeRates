@@ -18,7 +18,6 @@ public class RatesController {
 
     @FXML
     void initialize() {
-        assert imageButtonHome != null : "fx:id=\"imageButtonHome\" was not injected: check your FXML file 'app.fxml'.";
 
     }
 }
