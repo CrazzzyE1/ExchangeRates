@@ -35,6 +35,19 @@ public class Controller {
 
     @FXML
     void initialize() {
+
+        authSigInButton.setOnAction(event -> {
+            String loginText = login_field.getText().trim();
+            String passwordText = password_field.getText().trim();
+            if(!loginText.equals("") && !passwordText.equals("")) {
+                loginUser(loginText, passwordText);
+            } else
+            {
+                System.out.println("Login is empty");
+            }
+
+        });
+
         loginSigInButton.setOnAction(event -> {
             loginSigInButton.getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
@@ -50,6 +63,10 @@ public class Controller {
             stage.showAndWait();
 
         });
+    }
+
+    private void loginUser(String loginText, String passwordText) {
+
     }
 }
 
