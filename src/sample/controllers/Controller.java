@@ -16,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import sample.DatabaseHandler;
 import sample.User;
+import sample.animations.Shake;
 
 public class Controller {
 
@@ -88,6 +89,11 @@ public class Controller {
 
         if(counter!=0) {
             System.out.println("Authorization");
+        } else {
+            Shake userLoginAnim = new Shake(login_field);
+            Shake userPassAnim = new Shake(password_field);
+            userLoginAnim.playAnim();
+            userPassAnim.playAnim();
         }
 
     }
