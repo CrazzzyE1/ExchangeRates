@@ -17,16 +17,12 @@ public class DatabaseHandler extends Configs {
                 "&amp"+
                 "&serverTimezone=UTC";
 
-//        String url = "jdbc:mysql://localhost:3306/dbname";
-
-
         Class.forName("com.mysql.cj.jdbc.Driver");
         dbConnectiion = DriverManager.getConnection(connectionString, dbUser, dbPass);
 
         return dbConnectiion;
     }
 
-    //Write here
     public void signUpUser(String name, String email, String login, String password) {
         String insert = "INSERT INTO " + Const.USER_TABLE + "(" + Const.USER_NAME + "," +
                 Const.USER_EMAIL + "," + Const.USER_LOGIN + "," + Const.USER_PASS + ")" + "VALUES(?,?,?,?)";
