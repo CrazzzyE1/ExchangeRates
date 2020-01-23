@@ -1,9 +1,6 @@
 package sample;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DatabaseHandler extends Configs {
     Connection dbConnectiion;
@@ -23,16 +20,16 @@ public class DatabaseHandler extends Configs {
         return dbConnectiion;
     }
 
-    public void signUpUser(String name, String email, String login, String password) {
+    public void signUpUser(User user) {
         String insert = "INSERT INTO " + Const.USER_TABLE + "(" + Const.USER_NAME + "," +
                 Const.USER_EMAIL + "," + Const.USER_LOGIN + "," + Const.USER_PASS + ")" + "VALUES(?,?,?,?)";
 
         try {
             PreparedStatement prST = getDbConnectiion().prepareStatement(insert);
-            prST.setString(1, name);
-            prST.setString(2, email);
-            prST.setString(3, login);
-            prST.setString(4, password);
+            prST.setString(1, user.getName());
+            prST.setString(2, user.getEmail());
+            prST.setString(3, user.getLogin());
+            prST.setString(4, user.getPassword1());
             prST.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -40,5 +37,9 @@ public class DatabaseHandler extends Configs {
             e.printStackTrace();
         }
     }
+
+//    public ResultSet getUser(User user) {
+//        return ResultSet
+//    }
 
 }
