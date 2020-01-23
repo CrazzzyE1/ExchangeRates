@@ -2,6 +2,8 @@ package sample.controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
@@ -12,6 +14,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import sample.DatabaseHandler;
+import sample.User;
+import sample.animations.Shake;
 
 public class Controller {
 
@@ -66,6 +71,30 @@ public class Controller {
     }
 
     private void loginUser(String loginText, String passwordText) {
+        DatabaseHandler dbHandler = new DatabaseHandler();
+        User user = new User();
+        user.setLogin(loginText);
+        user.setPassword1(passwordText);
+        ResultSet result = dbHandler.getUser(user);
+        int counter = 0;
+
+        while (true) {
+            try {
+                if (!result.next()) break;
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            counter++;
+        }
+
+        if(counter!=0) {
+            System.out.println("Authorization");
+        } else {
+            Shake userLoginAnim = new Shake(login_field);
+            Shake userPassAnim = new Shake(password_field);
+            userLoginAnim.playAnim();
+            userPassAnim.playAnim();
+        }
 
     }
 }

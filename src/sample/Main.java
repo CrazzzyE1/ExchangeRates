@@ -16,7 +16,7 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-//insert database
+//v.0.3 LOGIN USERS
     public static void main(String[] args) {
         launch(args);
     }
