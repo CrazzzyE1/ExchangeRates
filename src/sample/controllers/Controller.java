@@ -57,7 +57,10 @@ public class Controller {
 
         });
 
+
+
         loginSigInButton.setOnAction(event -> {
+
             openWindows("/sample/view/sighUp.fxml");
         });
 
