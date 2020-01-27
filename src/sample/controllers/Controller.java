@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Border;
 import javafx.stage.Stage;
 import sample.DatabaseHandler;
 import sample.User;
@@ -48,7 +49,10 @@ public class Controller {
                 loginUser(loginText, passwordText);
             } else
             {
-                System.out.println("Login is Empty");
+                login_field.setPromptText("Login is Empty");
+                login_field.setStyle("-fx-border-color: red;");
+                password_field.setStyle("-fx-border-color: red;");
+                password_field.setPromptText("Password is Empty");
             }
 
         });
@@ -89,6 +93,7 @@ public class Controller {
     }
 
     public void openWindows(String windowName) {
+
         loginSigInButton.getScene().getWindow().hide();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(windowName));
@@ -101,6 +106,8 @@ public class Controller {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.showAndWait();
+
+
     }
 }
 
