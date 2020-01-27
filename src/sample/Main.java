@@ -16,7 +16,7 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-//v.0.3 LOGIN USERS
+//v.0.5 Final window
     public static void main(String[] args) {
         launch(args);
     }
