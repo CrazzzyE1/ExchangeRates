@@ -48,26 +48,16 @@ public class Controller {
                 loginUser(loginText, passwordText);
             } else
             {
-                System.out.println("Login is empty");
+                System.out.println("Login is Empty");
             }
 
         });
 
         loginSigInButton.setOnAction(event -> {
-            loginSigInButton.getScene().getWindow().hide();
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/sample/view/sighUp.fxml"));
-            try {
-                loader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Parent root = loader.getRoot();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.showAndWait();
-
+            openWindows("/sample/view/sighUp.fxml");
         });
+
+
     }
 
     private void loginUser(String loginText, String passwordText) {
@@ -88,7 +78,7 @@ public class Controller {
         }
 
         if(counter!=0) {
-            System.out.println("Authorization");
+            openWindows("/sample/view/app.fxml");
         } else {
             Shake userLoginAnim = new Shake(login_field);
             Shake userPassAnim = new Shake(password_field);
@@ -96,6 +86,21 @@ public class Controller {
             userPassAnim.playAnim();
         }
 
+    }
+
+    public void openWindows(String windowName) {
+        loginSigInButton.getScene().getWindow().hide();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(windowName));
+        try {
+            loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Parent root = loader.getRoot();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.showAndWait();
     }
 }
 

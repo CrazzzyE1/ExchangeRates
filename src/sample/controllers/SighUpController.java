@@ -1,12 +1,17 @@
 package sample.controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import sample.DatabaseHandler;
 import sample.User;
 
@@ -40,6 +45,7 @@ public class SighUpController {
     void initialize() {
         sighUpButton.setOnAction(event -> {
             sighUpNewUser();
+
         });
 
     }
@@ -57,7 +63,25 @@ public class SighUpController {
         } else {
             User user = new User(name, email, login, password1, password2);
             dbHandler.signUpUser(user);
+//            openWindows("/sample/view/sample.fxml");
+
+
         }
 
     }
+    public void openWindows(String windowName) {
+        sighUpButton.getScene().getWindow().hide();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(windowName));
+        try {
+            loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Parent root = loader.getRoot();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.showAndWait();
+    }
+
 }
